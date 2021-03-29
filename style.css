@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --basic:#02343F;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    width: 100%;
+    background: var(--basic);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+.word-display{
+    margin-top: 3rem;
+    font-size: 80px;
+    color: var(--basic);
+}
+.word-input-box{
+    margin-top: 2rem;
+}
+.word-input {
+    padding: 0.5rem;
+    width: 300px;
+}
+.game-info{
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    font-size: 25px;
+}
+.time,
+.score{
+    font-size: 30px;
+}
+.button{
+    width: 200px;
+    height: 35px;
+    background: var(--basic);
+    color: #fff;
+    margin-top: 3rem;
+    cursor: pointer;    
+    border-radius: 8px;
+}
+.loading{
+    background: #ccc;
+    cursor: not-allowed;
+}
