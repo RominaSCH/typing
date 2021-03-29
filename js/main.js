@@ -12,15 +12,20 @@ let time = 9;
 let isPlaying = false;
 let timeInterval;
 let checkInterval;
+let words = [];
 
 //functions
 init();
 
 function init(){
+    buttonChanger("Loading");
     getWords();
     wordInput.addEventListener("input", checkMatch);
 }
 function run(){
+    if(isPlaying){
+        return;
+    }
     isPlaying = true;
     time = GAME_TIME;
     wordInput.focus();
@@ -38,8 +43,23 @@ function checkStatus(){
     }
 }
 function getWords(){
-    const words = ["html", "const","raspberrypi","python","mechanical","engineering"];
-    buttonChanger("Start");
+    axios.get('https://random-word-api.herokuapp.com/word?number=500')
+        .then(function (response) {
+            // handle success
+            response.data.forEach((word) => {
+                if(word.length < 10){
+                    words.push(word);
+                }
+            })
+            buttonChanger("Start");
+            console.log(words);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+        });
 }
 
 function buttonChanger(text){
